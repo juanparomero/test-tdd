@@ -1,0 +1,16 @@
+{
+  "name": "test-tdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "jp",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2"
+  },
+  "scripts": {
+    "test" : "jest"
+  }
+}
