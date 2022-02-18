@@ -1,18 +1,17 @@
 const express = require('express')
 const axios = require('axios')
 const bodyParse = require('body-parser')
-const {users} = require('./endpoints')
+const {posts} = require('./endpoints')
+const {authenticate} = require('./middlewares')
 const app = express()
 const port = 3000
-const userHandlers = users({axios})
+const postsHandlers = posts({axios})
 
 app.use(bodyParse.urlencoded({extended:false}))
 app.use(bodyParse.json())
 
-app.get('/', userHandlers.get)
-app.post('/', userHandlers.post)
-app.put('/:id', userHandlers.put)
-app.delete('/:id', userHandlers.delete)
+
+app.post('/',authenticate, postsHandlers.post)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
